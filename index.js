@@ -25,7 +25,7 @@ function getLog(){
 		res = child_process.execSync("git push origin master").toString();
 		console.log(res);
 	}catch(e){}
-	setTimeout(getLog,14400000);// 4*3600s 000
+	setTimeout(getLog, Math.ceil((Math.random() * 8 + 4)*3600000));// 4*3600s 000
 }
 getLog();
 
