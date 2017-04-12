@@ -24,7 +24,10 @@ function getLog(){
 		child_process.execSync("git commit -m 'add log "+fileName+"'").toString();
 		res = child_process.execSync("git push origin master").toString();
 		console.log(res);
-	}catch(e){}
+	}catch(e){
+		console.log(e);
+
+	}
 	setTimeout(getLog, Math.ceil((Math.random() * 8 + 16)*3600000));// 4*3600s 000
 }
 getLog();
