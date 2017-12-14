@@ -19,5 +19,12 @@ module.exports = {
       "no-useless-constructor": 1,
       "space-before-function-paren": 0,
       "no-template-curly-in-string": 0
+  },
+  settings: {
+    'import/resolver': {
+        'webpack': {
+            'config': 'webpack.config.js'
+        }
+    }
   }
 }

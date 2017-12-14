@@ -46,17 +46,15 @@ const config = {
   },
 
   module: {
-    module: {
-      rules: [
-        { test: /\.js$/, loaders: isDev ? ['babel-loader'] : ['babel-loader', 'eslint-loader']},
-        {	test: /\.css$/, loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]', 'postcss-loader']},
-        {	test: /\.less$/, loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]', 'postcss-loader', 'less-loader']},
-        { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'] },
-        { test: /\.(ttf|eot|woff|woff2|otf|svg)/, loader: 'file-loader?name=./font/[name].[ext]' },
-        { test: /\.json$/, loader: 'file-loader?name=./json/[name].json' }
-      ]
-    }
-  },
+    rules: [
+      { test: /\.js$/, loaders: isDev ? ['babel-loader'] : ['babel-loader', 'eslint-loader']},
+      {	test: /\.css$/, loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]', 'postcss-loader']},
+      {	test: /\.less$/, loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]', 'postcss-loader', 'less-loader']},
+      { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'] },
+      { test: /\.(ttf|eot|woff|woff2|otf|svg)/, loader: 'file-loader?name=./font/[name].[ext]' },
+      { test: /\.json$/, loader: 'file-loader?name=./json/[name].json' }
+    ]
+  }
 };
 
 module.exports = config;
