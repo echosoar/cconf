@@ -1,1 +1,1 @@
-src build doc test libs demo
+src src/components src/components/base build doc test libs demo

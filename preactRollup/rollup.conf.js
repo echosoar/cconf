@@ -4,7 +4,7 @@ import cjs from 'rollup-plugin-commonjs'
 import globals from 'rollup-plugin-node-globals'
 import replace from 'rollup-plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
-import less from 'rollup-plugin-less';
+import postcss from 'rollup-plugin-postcss';
 import alias from 'rollup-plugin-alias';
 
 export default {
@@ -15,7 +15,10 @@ export default {
   },
   plugins: [
     resolve({jsnext: true}),
-    less(),
+    postcss({
+      modules:true,
+      extensions: ['.css', '.less']
+    }),
     alias({
       _: path.resolve(__dirname, './pages/src')
     }),
