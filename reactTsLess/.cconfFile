@@ -1,1 +1,1 @@
-package.json .gitignore demo/index.html src/index.tsx src/styles/index.less libs/react.min.16.10.2 libs/react-dom.min.16.10.2 tsconfig.json webpeck.conf.json
+package.json .gitignore demo/index.html src/index.tsx src/router.tsx src/styles/index.less src/layout/base/index.tsx libs/react.min.16.10.2.js libs/react-dom.min.16.10.2.js tsconfig.json webpack.conf.js

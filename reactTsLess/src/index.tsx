@@ -1,29 +1,46 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import Styles from './styles/index.less';
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
+import routes from './router';
 
-interface PropsType {
-  propName: string;
-}
-
-interface StateType {
-  name: string
-}
-
-class App extends React.Component<PropsType, StateType> {
+class App extends React.Component<{}, {}> {
   readonly state = {
-    name: "123"
+    
   }
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState({ name: "" + new Date() });
-    }, 300);
+    console.log('render');
+  }
+
+  getRouter() {
+    return (
+      <HashRouter>
+        <Switch>
+          {
+            routes.map((route) => {
+              const { path, exact, comp: RouteComponent, layout:LayoutComponent } = route;
+              return <Route exact={exact} path={path}>
+                {
+                  LayoutComponent ?
+                    <LayoutComponent>
+                      <RouteComponent />
+                    </LayoutComponent>:
+                    <RouteComponent />
+                }
+              </Route>
+            })
+          }
+          <Route render={() => <Redirect to="/" />} />
+        </Switch>
+      </HashRouter>
+    );
   }
 
   render() {
-    return <div className={Styles.name}>Test {this.props.propName} {this.state.name }</div>;
+    return <div>
+      { this.getRouter() }
+    </div>
   }
 }
 
-render(<App propName="propTest" />, document.getElementById('container'));
+render(<App />, document.getElementById('container'));

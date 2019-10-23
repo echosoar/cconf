@@ -1,1 +1,1 @@
-src libs demo dist src/styles
+src libs demo dist src/styles src/layout src/components src/layout/base
